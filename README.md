@@ -30,3 +30,7 @@ It was suggested that a list of features be assembled that could be evaluated an
 * Enhanced access to peripherals
 
   Many improved classes giving more granular access to ADC, PWM, I2C, UART, SPI, RTC, the Pin class, etc.
+
+# Most valuable features
+
+## List with subheadings to go here
