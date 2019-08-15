@@ -31,6 +31,8 @@ It was suggested that a list of features be assembled that could be evaluated an
 
   Many improved classes giving more granular access to ADC, PWM, I2C, UART, SPI, RTC, the Pin class, etc.
 
-# Most valuable features
+# Valuable features
 
-## List with subheadings to go here
+## PWM
+
+The [PWM implementation of MicroPython](https://docs.micropython.org/en/latest/esp32/quickref.html#pwm-pulse-width-modulation) appears to assign the same frequency to all pins. The [loboris implementation](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/pwm) provides for 4 frequency timers and 8 channels, multiple channels can use the same timer. Duty cycles can be assigned independently. Also there is a PWM.list()  function which shows status of all active PWM.
