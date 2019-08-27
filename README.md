@@ -5,7 +5,7 @@ A list of suggested features that could be imported from the loboris ESP32 Micro
 
 A couple of years ago Boris Lovosevic [cloned the MicroPython repository](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo) and added many features specifically tailored for the Espressif ESP32 microcontroller ([see them listed in his wiki](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki)). 
 
-Developers adopted this code and have used it to successfully build applications. As time passed Boris appears to have moved on to other interests and his repository is dormant. There is interest in preserving the more valuable features of his project by importing them into mainstream MicroPython.
+Developers adopted this code and have used it to successfully build applications. As time passed Boris appears to have moved on to other pursuits and his repository is dormant. There is interest in preserving the more valuable features of his project by importing them into mainstream MicroPython.
 
 It was suggested that a list of features be assembled that could be evaluated and discussed. This markdown file is offered as a convenient starting point for the list. If you are interested in contributing, please clone this repository, add your suggestions, and offer pull requests. Or if you prefer, merely post your suggestions as an 'issue' and they may be incorporated.
 
@@ -13,7 +13,7 @@ It was suggested that a list of features be assembled that could be evaluated an
 
 * [The build system](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/build)
 
-  The loboris repository contains everything you need to build firmware that can be burned onto an ESP32 board. It includes the very sizeable Xtensa toolchains and esp-idf, [a build script](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/build) with many useful options including the ability to make and flash both firmware and a filesystem with contents, and a menuconfig setup that lets you conveniently view and set dozens of options. 
+  The loboris repository contains everything you need to build firmware that can be burned onto an ESP32 board. It includes the very sizeable Xtensa toolchains and esp-idf, esptool, [a build script](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/build) with many useful options including the ability to make and flash both firmware and a filesystem with pre-loaded contents, and a menuconfig implementation that lets you conveniently view and set dozens of options. 
 
 * [The network module](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/network)
 
@@ -36,3 +36,7 @@ It was suggested that a list of features be assembled that could be evaluated an
 ## PWM
 
 The [PWM implementation of MicroPython](https://docs.micropython.org/en/latest/esp32/quickref.html#pwm-pulse-width-modulation) appears to assign the same frequency to all pins. The [loboris implementation](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/pwm) provides for 4 frequency timers and 8 channels, multiple channels can use the same timer. Duty cycles can be assigned independently. Also there is a PWM.list()  function which shows status of all active PWM.
+
+## ADC
+
+The ADC implementation of MicroPython is [described here](https://docs.micropython.org/en/latest/esp32/quickref.html#adc-analog-to-digital-conversion), the loboris implementation is [documented here](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/adc). The loboris port adds access to ADC2 via the 'unit' parameter. Also added are *deinit()* (frees the pin for other purposes) and *vref()* (set up a reference voltage) methods. A set of handy convenience methods are implemented for periodically collecting ADC data as a separate task.
