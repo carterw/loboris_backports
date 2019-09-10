@@ -21,7 +21,7 @@ It was suggested that a list of features be assembled that could be evaluated an
 
 * [OTA update capability](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/ota)
 
-  You can update your firmware over the internet.
+  You can update your firmware over the internet. This involves running an http client on the target device that pulls down new images and flashes them locally. 
 
 * [The machine module](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/machine)
 
@@ -40,3 +40,12 @@ The [PWM implementation of MicroPython](https://docs.micropython.org/en/latest/e
 ## ADC
 
 The ADC implementation of MicroPython is [described here](https://docs.micropython.org/en/latest/esp32/quickref.html#adc-analog-to-digital-conversion), the loboris implementation is [documented here](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/adc). The loboris port adds access to ADC2 via the 'unit' parameter. Also added are *deinit()* (frees the pin for other purposes) and *vref()* (set up a reference voltage) methods. A set of handy convenience methods are implemented for periodically collecting ADC data as a separate task.
+
+## Filesystems
+
+The loboris port allows for [three different possible filesystem types](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/filesystems); FatFSs (microsoft filesystem?), SPIFF, and LittleFS. These can all be imaged and flashed from the build script.
+
+
+## Thread support
+
+Mainstream MicroPython uses a [multiple-task technique called asyncio](https://github.com/micropython/micropython-lib/tree/master/uasyncio). In the loboris port a [thread mechanism was implemented](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/thread) which seems very handy. Maybe both could be available in mainstream MicroPython.
